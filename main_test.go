@@ -11,6 +11,16 @@ func TestRemoveThisAndChildren(t *testing.T) {
 	RemoveThisAndChildren(f)
 }
 
+func TestInit(t *testing.T) {
+	Init()
+}
+
+func BenchmarkInit(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Init()
+	}
+}
+
 func BenchmarkRemoveThisAndChildren(b *testing.B) {
 	f := Folder{"a"}
 

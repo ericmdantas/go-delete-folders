@@ -15,6 +15,8 @@ type Folder struct {
 	Name string
 }
 
+var folderName = flag.String("folder", "", "folder to be removed")
+
 func (f Folder) Remove() {
 	fmt.Printf("Starting removal of: %v and it's children\n", f.Name)
 
@@ -25,22 +27,18 @@ func RemoveThisAndChildren(r Remover) {
 	r.Remove()
 }
 
-func getFlagVal() *string {
-
-	fd := flag.String("folder", "", "folder to be removed")
-
+func Init() {
 	flag.Parse()
-
-	return fd
-}
-
-func main() {
 
 	t := time.Now()
 
-	f := Folder{*getFlagVal()}
+	f := Folder{*folderName}
 
 	RemoveThisAndChildren(f)
 
 	fmt.Printf("Finished in: %v", time.Since(t))
+}
+
+func main() {
+	go Init()
 }
