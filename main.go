@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"os"
-	"time"
 )
 
 type Remover interface {
@@ -26,8 +25,6 @@ func RemoveThisAndChildren(r Remover) {
 
 func Init() {
 	flag.Parse()
-
-	t := time.Now()
 
 	f := Folder{*folderName}
 
