@@ -1,5 +1,6 @@
 language: go
+go: 
+ - 1.4
 
-go:	1.4
-
-script: "go test ./... -cover -bench ."
+script:
+ - go test -v ./..
