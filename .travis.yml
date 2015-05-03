@@ -3,6 +3,11 @@ language: go
 go:
 - 1.4
 
+before_install:
+  - go get github.com/axw/gocov/gocov
+  - go get github.com/mattn/goveralls
+  - if ! go get code.google.com/p/go.tools/cmd/cover; then go get golang.org/x/tools/cmd/cover; fi
+
 install:
 - go get -d -t -v ./...
 
@@ -11,3 +16,4 @@ before_script:
 
 script:
 - go test -v ./... -cover -bench .
+- $HOME/gopath/bin/goveralls -service=travis-ci
