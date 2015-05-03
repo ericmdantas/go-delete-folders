@@ -2,7 +2,8 @@ language: go
 go: 
  - 1.4
 
-before_script: go get
+install:
+- go get github.com/user/ericmdantas/go-delete-folders
 
 script:
- - go test -v ./..
+ - go test -v ./.. -cover -bench .
