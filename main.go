@@ -32,5 +32,5 @@ func Init() {
 }
 
 func main() {
-	go Init()
+	Init()
 }
